@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Doesntpad</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/notepad.css">
+</head>
+<body>
+	<div class="paper">
+    	<div class="paper-content">
+        	<textarea autofocus id="textarea">
+        		{{content}}
+        	</textarea>
+    	</div>
+	</div>
+	<footer>
+  		Orginal pen by  <a href="https://codepen.io/MarcMalignan/" target="_blank">Marc Malignan</a> inspired by by Allan Peters 
+	</footer>
+	<script type="text/javascript">
+		let textarea = document.getElementById('textarea');
+		textarea.addEventListener('keyup', sendRequest);
+
+		function sendRequest() {
+			let notepad = {
+				id: parseInt("{{id}}"),
+				slug: "{{slug}}",
+				content: document.getElementById("textarea").value
+			}
+			fetch(`http://localhost:8000/${parseInt(notepad.id)}`, {
+				method: 'PUT',
+				headers: { 'Content-Type': 'application/json'},
+ 				body: JSON.stringify(notepad)
+			}).then(res => console.log(res))
+		}
+	</script>
+</body>
+</html>
