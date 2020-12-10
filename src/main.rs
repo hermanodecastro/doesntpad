@@ -54,6 +54,7 @@ fn notepad(slug: String) -> Result<Template> {
 fn update(id: i32, request: Json<Notepad>) -> Result<()> {
 	let mut db = Database::new()?;
 	db.execute("UPDATE notepads set content = ?1 WHERE id = ?2", params![request.content, id])?;
+	db.close().unwrap();
 	Ok(())
 }
 
