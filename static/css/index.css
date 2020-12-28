@@ -1,0 +1,44 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+
+h1 {
+	font-size: 60px;
+	font-weight: bold;
+	text-align: center;
+}
+
+input {
+	border: 1px solid;
+	height: 25px;
+	width: 250px;
+}
+
+label {
+	font-size: 20px;
+}
+
+button {
+	height: 30px;
+	font-size: 18px;
+}
+
+.flex {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	height: 65vh;
+	justify-content: center;
+	margin: 0 auto;
+	width: 550px;
+}
+
+.item {
+	margin-top: 55px;
+}
+
+.paragraph {
+	font-size: 20px;
+}

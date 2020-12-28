@@ -5,31 +5,36 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/notepad.css">
 </head>
 <body>
-	<div class="paper">
-    	<div class="paper-content">
-        	<textarea autofocus id="textarea">
-        		{{content}}
-        	</textarea>
-    	</div>
-	</div>
-	<footer>
-  		Orginal pen by  <a href="https://codepen.io/MarcMalignan/" target="_blank">Marc Malignan</a> inspired by by Allan Peters 
-	</footer>
+	<textarea id="content">{{content}}</textarea>
 	<script type="text/javascript">
-		let textarea = document.getElementById('textarea');
-		textarea.addEventListener('keyup', sendRequest);
+		let content = document.getElementById("content");
+
+		content.addEventListener("keyup", sendRequest);
+		content.addEventListener("keydown", tabulationHandler);
 
 		function sendRequest() {
 			let notepad = {
 				id: parseInt("{{id}}"),
 				slug: "{{slug}}",
-				content: document.getElementById("textarea").value
+				content: document.getElementById("content").value
 			}
 			fetch(`http://localhost:8000/${parseInt(notepad.id)}`, {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json'},
  				body: JSON.stringify(notepad)
 			}).then(res => console.log(res))
+		}
+
+		function tabulationHandler(e) {
+			if(e.keyCode == 9) {
+				e.preventDefault();
+				
+				/*Melhorar para o caso do tab após texto*/
+
+				let s = this.selectionStart;
+           		this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+            	this.selectionEnd = s+1; 
+			}
 		}
 	</script>
 </body>
