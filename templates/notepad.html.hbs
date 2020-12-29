@@ -8,7 +8,6 @@
 	<textarea id="content">{{content}}</textarea>
 	<script type="text/javascript">
 		let content = document.getElementById("content");
-
 		content.addEventListener("keyup", sendRequest);
 		content.addEventListener("keydown", tabulationHandler);
 
@@ -25,15 +24,14 @@
 			}).then(res => console.log(res))
 		}
 
-		function tabulationHandler(e) {
-			if(e.keyCode == 9) {
-				e.preventDefault();
-				
-				/*Melhorar para o caso do tab após texto*/
-
-				let s = this.selectionStart;
-           		this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
-            	this.selectionEnd = s+1; 
+		function tabulationHandler(event) {
+			if(event.keyCode == 9) {
+				event.preventDefault();
+            	let previousPosition = this.selectionStart;
+            	let posteriorPosition = this.selectionEnd;
+            	event.target.value = event.target.value.substring(0, posteriorPosition) + "\t" + event.target.value.substring(posteriorPosition);
+            	this.selectionStart = previousPosition + 1;
+            	this.selectionEnd = previousPosition + 1;
 			}
 		}
 	</script>
