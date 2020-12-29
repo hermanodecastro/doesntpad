@@ -39,12 +39,8 @@ fn notepad(slug: String) -> Result<Template> {
 		db.close().unwrap();
 		Ok(Template::render("notepad", notepad))
 	} else {
-		let notepad = Notepad {
-			id: None,
-			slug,
-			content: String::from(" ")
-		};
-		db.execute("INSERT INTO notepads (slug, content) VALUES (?1, ?2)", params![notepad.slug, notepad.content])?;
+		db.execute("INSERT INTO notepads (slug, content) VALUES (?1, ?2)", params![slug, String::from("")])?;
+		let notepad = db.select("SELECT * FROM notepads WHERE slug = ?1", params![slug])?;
 		db.close().unwrap();
 		Ok(Template::render("notepad", notepad))
 	}
