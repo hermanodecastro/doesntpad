@@ -17,12 +17,12 @@
 				slug: "{{slug}}",
 				content: document.getElementById("content").value
 			};
-			
-			fetch(`http://localhost:8000/${parseInt(notepad.id)}`, {
+
+			fetch(`http://localhost:8000/${notepad.id}`, {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json'},
  				body: JSON.stringify(notepad)
-			}).then(res => console.log(res))
+			});
 		}
 
 		function tabulationHandler(event) {
