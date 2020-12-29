@@ -16,7 +16,8 @@
 				id: parseInt("{{id}}"),
 				slug: "{{slug}}",
 				content: document.getElementById("content").value
-			}
+			};
+			
 			fetch(`http://localhost:8000/${parseInt(notepad.id)}`, {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json'},
