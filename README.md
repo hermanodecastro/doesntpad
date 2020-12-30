@@ -5,7 +5,7 @@ Doesntpad is an online notepad made in Rust inspired by dontpad.
 * Rust Nightly
 
 ## Quickstart
-* Clone this repository to your local
+* Clone this repository to your local.
 > `https://github.com/hermanodecastro/doesntpad.git`
 
 * Run `cargo run` to start the application.
