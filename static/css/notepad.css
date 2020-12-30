@@ -1,14 +1,23 @@
 body {
+	background-color: indigo;
     margin: 0;
     padding: 0;
 }
 
 textarea {
-    border: 1px solid;
+    border: none;
     box-shadow: repeat(4, 0);
     font-family: Arial;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
     height: 100vh;
+    margin: 50px auto 10px auto;
     outline: 0;
-    width: 100%;
+    width: 80%;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }

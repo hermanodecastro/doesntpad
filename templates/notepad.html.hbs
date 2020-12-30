@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Doesntpad</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/static/css/notepad.css">
 </head>
 <body>
-	<textarea id="content">{{content}}</textarea>
+	<div class="container">
+		<textarea id="content" spellcheck="false">{{content}}</textarea>
+	</div>
+	
 	<script type="text/javascript">
 		let content = document.getElementById("content");
-		content.addEventListener("keyup", sendRequest);
+
+		content.addEventListener("keyup", updateContent);
 		content.addEventListener("keydown", tabulationHandler);
 
-		function sendRequest() {
+		function updateContent() {
 			let notepad = {
 				id: parseInt("{{id}}"),
 				slug: "{{slug}}",
