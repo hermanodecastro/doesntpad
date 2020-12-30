@@ -1,5 +1,5 @@
 # doesntpad
-Doesntpad is an online notepad made in Rust inspired by dontpad.
+Doesntpad is an online notepad made in Rust inspired by `http://dontpad.com/`.
 
 ## Requirements
 * Rust Nightly
