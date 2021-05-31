@@ -6,9 +6,11 @@ Doesntpad is an online notepad made in Rust inspired by `http://dontpad.com/`.
 
 ## Quickstart
 1. Clone this repository to your local.
-> `https://github.com/hermanodecastro/doesntpad.git`
+> `https://github.com/hermanodecastro/zombie-apocalypse-game.git`
 
-2. Run `cargo run` to start the application.
+2. On Linux `gcc main.c -o main -lm` to compile the application.
+
+3. On windows `gcc main.c -o main` to compile the application.
 
 ## Application
 ![doesntpad-img-1](https://user-images.githubusercontent.com/45005417/103443667-5b669700-4c40-11eb-9be8-5885e8908893.png)
